@@ -144,7 +144,7 @@ function App() {
   
 	const handleStateChange = (e) => {
 	  setSelectedStateIndex(parseInt(e.target.value));
-	  setSelectedCityIndex(0); // Reset city when state changes
+	  setSelectedCityIndex(0); 
 	};
   
 	const handleCityChange = (e) => {
@@ -167,7 +167,13 @@ function App() {
 			<option key={index} value={index}>{city.name}</option>
 		  ))}
 		</select>
-  
+
+		<select id="landmark" value={selectedLandmarkIndex} onChange={handleLandmarkChange}>
+        {selectedCity.landmarks.map((landmark, index) => (
+          <option key={index} value={index}>{landmark.name}</option> // Render options for landmarks
+        ))}
+      </select>
+	  
 		<div id="state-name">{selectedState.name}</div>
 		<div id="state-description">{selectedState.description}</div>
   
