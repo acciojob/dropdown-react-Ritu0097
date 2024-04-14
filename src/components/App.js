@@ -153,7 +153,7 @@ function App() {
   
 	const selectedState = states[selectedStateIndex];
 	const selectedCity = selectedState.city[selectedCityIndex];
-  
+	const selectedLandmark = selectedCity.landmarks[selectedLandmarkIndex];
 	return (
 	  <div id="main">
 		<select id="state" value={selectedStateIndex} onChange={handleStateChange}>
@@ -173,7 +173,7 @@ function App() {
           <option key={index} value={index}>{landmark.name}</option> // Render options for landmarks
         ))}
       </select>
-	  
+
 		<div id="state-name">{selectedState.name}</div>
 		<div id="state-description">{selectedState.description}</div>
   
