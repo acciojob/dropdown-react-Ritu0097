@@ -141,17 +141,17 @@ const states = [{
 function App() {
 	const [selectedStateIndex, setSelectedStateIndex] = useState(0);
 	const [selectedCityIndex, setSelectedCityIndex] = useState(0);
-	const [selectedLandmarkIndex, setSelectedLandmarkIndex] = useState(0); 
+	const [selectedLandmarkIndex, setSelectedLandmarkIndex] = useState(0);
   
 	const handleStateChange = (e) => {
 	  setSelectedStateIndex(parseInt(e.target.value));
 	  setSelectedCityIndex(0);
-	  setSelectedLandmarkIndex(0); 
+	  setSelectedLandmarkIndex(0);
 	};
   
 	const handleCityChange = (e) => {
 	  setSelectedCityIndex(parseInt(e.target.value));
-	  setSelectedLandmarkIndex(0); 
+	  setSelectedLandmarkIndex(0);
 	};
   
 	const handleLandmarkChange = (e) => {
@@ -160,9 +160,11 @@ function App() {
   
 	const selectedState = states[selectedStateIndex];
 	const selectedCity = selectedState.city[selectedCityIndex];
-	const selectedLandmark = selectedCity.landmarks[selectedLandmarkIndex]; 
+	const selectedLandmark = selectedCity.landmarks[selectedLandmarkIndex];
+  
 	return (
 	  <div id="main">
+		<h1 id="state-title">{selectedState.name}</h1> 
 		<select id="state" value={selectedStateIndex} onChange={handleStateChange}>
 		  {states.map((state, index) => (
 			<option key={index} value={index}>{state.name}</option>
@@ -177,17 +179,15 @@ function App() {
   
 		<select id="landmark" value={selectedLandmarkIndex} onChange={handleLandmarkChange}>
 		  {selectedCity.landmarks.map((landmark, index) => (
-			<option key={index} value={index}>{landmark.name}</option> 
+			<option key={index} value={index}>{landmark.name}</option>
 		  ))}
 		</select>
   
-		<div id="state-name">{selectedState.name}</div>
 		<div id="state-description">{selectedState.description}</div>
   
 		<div id="city-name">{selectedCity.name}</div>
 		<div id="city-description">{selectedCity.description}</div>
   
-		{/* Render details for the selected landmark */}
 		<div id="landmark-name">{selectedLandmark.name}</div>
 		<div id="landmark-description">{selectedLandmark.description}</div>
 	  </div>
@@ -195,3 +195,4 @@ function App() {
   }
   
   export default App;
+  
