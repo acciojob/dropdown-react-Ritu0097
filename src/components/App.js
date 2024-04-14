@@ -1,6 +1,6 @@
 import React, { useState, useReducer } from "react";
 import "./../styles/App.css";
-
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const states = [{
 	name: "Madhya Pradesh",
@@ -174,7 +174,6 @@ function App() {
 		<div id="city-name">{selectedCity.name}</div>
 		<div id="city-description">{selectedCity.description}</div>
   
-		{/* Render landmarks */}
 		{selectedCity.landmarks.map((landmark, index) => (
 		  <div key={index}>
 			<div>{landmark.name}</div>
