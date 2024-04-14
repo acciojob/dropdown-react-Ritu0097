@@ -164,19 +164,21 @@ function App() {
   
 	return (
 	  <div id="main">
-		<h1 id="state-title">{selectedState.name}</h1> 
+		<h1 id="state-title">{selectedState.name}</h1>
 		<select id="state" value={selectedStateIndex} onChange={handleStateChange}>
 		  {states.map((state, index) => (
 			<option key={index} value={index}>{state.name}</option>
 		  ))}
 		</select>
   
+		<h2 id="city-title">{selectedCity.name}</h2> 
 		<select id="city" value={selectedCityIndex} onChange={handleCityChange}>
 		  {selectedState.city.map((city, index) => (
 			<option key={index} value={index}>{city.name}</option>
 		  ))}
 		</select>
   
+		<h3 id="landmark-title">{selectedLandmark.name}</h3>
 		<select id="landmark" value={selectedLandmarkIndex} onChange={handleLandmarkChange}>
 		  {selectedCity.landmarks.map((landmark, index) => (
 			<option key={index} value={index}>{landmark.name}</option>
@@ -185,10 +187,8 @@ function App() {
   
 		<div id="state-description">{selectedState.description}</div>
   
-		<div id="city-name">{selectedCity.name}</div>
 		<div id="city-description">{selectedCity.description}</div>
   
-		<div id="landmark-name">{selectedLandmark.name}</div>
 		<div id="landmark-description">{selectedLandmark.description}</div>
 	  </div>
 	);
